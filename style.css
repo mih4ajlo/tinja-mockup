@@ -112,9 +112,11 @@ select {
 }
 
 .popup-label{
-	
+	text-align: center;
 }
 
 .popup-figure{
 	text-align: center;
+	font-size: 25px;
+	font-weight: 600;
 }
