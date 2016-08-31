@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.css">
 
-	
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
@@ -22,6 +22,7 @@
     <head>
 
         <body>
+          <div id="map" class="belove"></div>
             <div id="menu-container">
                 <ul id="menu-list">
                     <li><a href="#">Home</a></li>
@@ -46,13 +47,8 @@
                 	    <button id="submitForm">Submit</button>
                 	</form>
                 </div>
-				<div id="map" class="belove">
-					
-				</div>
-
-
             </div>
-        
+
 
 		<script type="text/javascript">
 			var input = document.getElementById("postcodeInput");
@@ -60,10 +56,10 @@
 
 				list: [
 				"Ada", "Java", "JavaScript", "Brainfuck", "LOLCODE", "Node.js", "Ruby on Rails"]
-			});	
+			});
 		</script>
 
-		<script src="static/script.js"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8iROkLemDoQ0DtokakfnPecU0h0rOK9I&callback=initMap"
     async defer></script>
 
