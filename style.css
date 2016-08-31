@@ -53,6 +53,7 @@ li:hover {
     top: 100px;
     bottom: 20px;
     width: 760px;
+    z-index: 5;
 }
 
 h1 {
@@ -99,7 +100,7 @@ select {
     position: relative;
     top: 0;
     left: 0;
-    z-index: -1;
+    /* z-index: -1; */
 
     /* Set z-index to 0 as it will be on a layer below the contact form */
 }

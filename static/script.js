@@ -4,7 +4,7 @@ var picture;
 var markers = [];
 
 var url = "data/data.csv";
-var allData = [];
+var citiesData = [];
 
 function initMap() {
 
@@ -18,20 +18,32 @@ function initMap() {
 
 
     d3.csv(url, function(data) {
-      allData = data;
+      citiesData = data;
     });
 
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
-        puttingMarkers(map, allData);
+        puttingMarkers(map, citiesData);
 
 
         $("#submitForm").click(function(event) {
             var lat = 44.6666;
             var long = 14.1496;
 
+
+
             event.preventDefault();
-            $("#landing").hide();
+            var postcode = $("#postcodeInput").val()
+
+            var city = citiesData.filter(function(el) {
+               return el.zip == postcode;
+            });
+            if( city !=undefined ){
+              lat = parseFloat(city[0].lat) ;
+              lon = parseFloat(city[0].lon) ;
+            }
+
+            $("#introduction-panel").hide();
             $(".belove").removeClass("belove")
             
             var center = new google.maps.LatLng(lat, long);
@@ -49,11 +61,11 @@ function initMap() {
 
 
 
-function puttingMarkers(map, allData) {
+function puttingMarkers(map, citiesData) {
   
 
-    for (var i = 0; i < allData.length; i++) {
-        var temp_datum = allData[i]; 
+    for (var i = 0; i < citiesData.length; i++) {
+        var temp_datum = citiesData[i]; 
         var temp_lat =  parseFloat(temp_datum.lat);
         var temp_lon =  parseFloat( temp_datum.lon );
 
