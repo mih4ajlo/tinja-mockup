@@ -88,7 +88,7 @@ d3.csv(peoplesUrl, function(data) {
 
     var labelColumns = {
         "name": "Name",
-        "years_we": "Expiriance years",
+        "years_we": "Experience years",
         "formal": "Formal education",
         "informal": "Informal education",
         "location": "Location",
