@@ -110,3 +110,11 @@ select {
     -webkit-filter: brightness(30%);
     filter: brightness(30%);
 }
+
+.popup-label{
+	
+}
+
+.popup-figure{
+	text-align: center;
+}

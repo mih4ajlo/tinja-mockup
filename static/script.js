@@ -73,7 +73,7 @@ function puttingMarkers(map, citiesData) {
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(temp_lat,  temp_lon),
             icon: {
-                url: 'http://localhost/tinja-mockup/static/solar_panel.svg',
+                url: 'static/solar_panel.svg',
                 size: new google.maps.Size(30, 42)           
 
             },
@@ -122,18 +122,24 @@ function puttingMarkers(map, citiesData) {
 
 function textData( object ) {
 
-
+var lowerLimit = Math.round(Math.random()*5);
+var upperLimit = 5 + Math.round(Math.random()*5);
+var lowerLimitSubs = 20 + Math.round(Math.random()*40);
+var upperLimitSubs = 5 + Math.round(Math.random()*70);
+var operators =  Math.round(Math.random()*20);
 
 var res =   
-  '<div id="content' + object.city + '">' +
+  '<div class="popup">' +
   '<div>' +
   '</div>' +
   '<h1  class="firstHeading">' + object.city + '</h1>' +
   '<div>' +
-  '<p>' +
+  '<p>' + '<br/>' + 
   //'<p><b>'+ object.city +'</b> ' +  
-  '<br/> Broj suncanih dana: '+ object.sunny_days + 
-  
+  '<div class="popup-label"> Sunny days: </div>  <div class="popup-figure"> '+ object.sunny_days + '</div>' +
+  '<div class="popup-label"> ROI: </div>  <div class="popup-figure">'+ lowerLimit + "-"+ upperLimit + 'Y</div>' +
+  '<div class="popup-label"> Subsidy: </div>  <div class="popup-figure">'+  + '%</div>' +
+  '<div class="popup-label"> Operators in county: </div>  <div class="popup-figure">'+ operators + '</div>' +
   '</p>' +
   '</div>' +
   '</div>';
