@@ -17,6 +17,15 @@
 	<script src="https://d3js.org/d3-dsv.v1.min.js"></script>
 	<script src="https://d3js.org/d3-request.v1.min.js"></script>
   <script>
+
+  $("#nextButton").click(function(ev) {
+  	formNext();
+  })
+
+  function formDone(argument) {
+  	console.log('test');
+  }
+
   function formNext() {
     var customerType = document.getElementById('customer-type').value;
 
@@ -73,7 +82,7 @@
                 	    <label for="postcode">my postcode is: </label>
                 	    <input id='postcodeInput' type="text" placeholder="01234" name="postcode" /><br />
                     </p>
-                	    <button type="button" class="formButton" onclick="formNext()" id="nextButton">Next</button>
+                	    <button class="formButton"  id="nextButton">Next</button>
                       <p id="homeownerForm">
                         <br />
                         <span style="color: #51A65B;">Brilliant! We just need to know a little bit more about your house...</span><br /><br />
