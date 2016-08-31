@@ -4,10 +4,21 @@ html {
     background: blue;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #menu-container {
     /* background: red; */
     max-width: 800px;
     margin: 20px auto;
+
+    position: absolute;
+    left: calc(50% - 400px);
+    width: 800px;
+    top: 10px;
+    z-index: 1;
 }
 
 #menu-list {
@@ -32,13 +43,16 @@ li:hover {
 }
 
 #introduction-panel {
-    /* max-width: calc(800px - 40px); */
+    left: calc(50% - 400px);
     margin: 20px auto;
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     margin-top: 40px;
     border-radius: 5px;
-    position: relative;
+    position: absolute;
+    top: 100px;
+    bottom: 20px;
+    width: 760px;
 }
 
 h1 {
@@ -80,12 +94,12 @@ select {
 }
 
 #map {
-    height: 80vh;
+    height: 100vh;
     width: 100%;
     position: relative;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: -1;
 
     /* Set z-index to 0 as it will be on a layer below the contact form */
 }
