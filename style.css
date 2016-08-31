@@ -1,71 +1,97 @@
 html {
-	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
-	background: blue;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    background: blue;
 }
 
 #menu-container {
-	//background: red;
-	max-width: 800px;
-	margin: 20px auto;
+    /* background: red; */
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 #menu-list {
-	background: #eee;
-	border-radius: 4px;
-	list-style-type: none;
-	display: flex;
-  justify-content: space-around;
-	padding-left: 0;
+    background: #eee;
+    border-radius: 4px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
 }
 
 li {
-	display: inline;
-	padding: 20px;
-	width: 25%;
-	text-align: center;
+    display: inline;
+    padding: 20px;
+    width: 25%;
+    text-align: center;
 }
 
 li:hover {
-	background: #ddd;
-	border-radius: 5px;
+    background: #ddd;
+    border-radius: 5px;
 }
 
 #introduction-panel {
-	max-width: calc(800px - 40px);
-	margin: 20px auto;
-	background: rgba(255, 255, 255, 0.9);
-	padding: 20px;
-	margin-top: 40px;
-	border-radius: 5px;
+    /* max-width: calc(800px - 40px); */
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 5px;
+    position: relative;
 }
 
 h1 {
-	line-height: 1em;
+    line-height: 1em;
 }
 
 h2 {
-	font-size: 1.1em;
-	color: #999;
+    font-size: 1.1em;
+    color: #999;
 }
 
 #introduction-form {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 #introduction-form input {
-	font-size: 1em;
-	width: 120px;
-	background: none;
-	border: none;
-	border-bottom: 3px solid;
+    font-size: 1em;
+    width: 120px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid;
 }
 
 select {
-	font-size: 1em;
-	font-family: 'Montserrat', sans-serif;
-	background: none;
-	border: none;
-	border-bottom: 3px solid;
-	padding-right: 20px;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    background: none;
+    border: none;
+    border-bottom: 3px solid;
+    padding-right: 20px;
+}
+
+#landing {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    z-index: 99;
+    background-color: gray;
+}
+
+#map {
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    /* Set z-index to 0 as it will be on a layer below the contact form */
+}
+
+.belove{
+	pointer-events: none;
+    -webkit-filter: brightness(30%);
+    filter: brightness(30%);
 }

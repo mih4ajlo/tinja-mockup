@@ -8,6 +8,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.css">
 
+	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
+
     <head>
 
         <body>
@@ -20,18 +25,26 @@
                 </ul>
             </div>
             <div id="introduction-panel">
-                <h1>tinja</h1>
-                <h2>Sustainable something bla bla bla.</h2>
-                <form id="introduction-form">
-                    <label for="customer-type">I am a </label>
-                    <select name="customer-type">
-                        <option>Homeowner</option>
-                    </select>
-                    and
-                    <br />
-                    <label for="postcode">my postcode is: </label>
-                    <input id='postcodeInput' type="text" placeholder="01234" name="postcode" />
-                </form>
+                <div id="landing" >
+                	<h1>tinja</h1>
+                	<h2>Sustainable something bla bla bla.</h2>
+                	<form id="introduction-form">
+                	    <label for="customer-type">I am a </label>
+                	    <select name="customer-type">
+                	        <option>Homeowner</option>
+                	    </select>
+                	    and
+                	    <br />
+                	    <label for="postcode">my postcode is: </label>
+                	    <input id='postcodeInput' type="text" placeholder="01234" name="postcode" />
+                	    <button id="submitForm">Submit</button>
+                	</form>
+                </div>
+				<div id="map" class="belove">
+					
+				</div>
+
+
             </div>
         
 
@@ -43,6 +56,104 @@
 				"Ada", "Java", "JavaScript", "Brainfuck", "LOLCODE", "Node.js", "Ruby on Rails"]
 			});	
 		</script>
+
+		<script>
+      var map;
+      var picture ;
+
+		
+  
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 44.8666, lng: 13.8496},
+          zoom: 8,
+          //icon: marker,
+          disableDefaultUI: true
+        });
+
+        var markers = [];
+
+        for (var i = 0; i < 10; i++) {
+        			
+        			
+//https://developers.google.com/maps/documentation/javascript/markers
+        var marker = new google.maps.Marker({
+		    position: new google.maps.LatLng( 44.8666 + (0.1 * i ), 13.8496 -  (0.1 * i )),
+		    icon: {
+		    	url:'http://localhost/tinja-mockup/static/solar_panel.svg',
+		    	size: new google.maps.Size(30, 42),
+		    	
+		    	/*origin: new google.maps.Point(0, 0),    		
+    			anchor: new google.maps.Point(0, 32),*/
+    			
+		    },
+		   
+		    title:"Hello World!"
+		});
+
+          var contentString = '<div id="content'+i+'">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+      'sandstone rock formation in the southern part of the '+
+      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+      'south west of the nearest large town, Alice Springs; 450&#160;km '+
+      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+      'Aboriginal people of the area. It has many springs, waterholes, '+
+      'rock caves and ancient paintings. Uluru is listed as a World '+
+      'Heritage Site.</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>';
+
+	    var infowindow = new google.maps.InfoWindow({
+		    content: contentString
+		});
+
+		marker.addListener('click', function() {
+		    infowindow.open(map, marker);
+		  });
+        
+
+        
+        markers.push(marker);
+        }	
+
+        var stylesMC = [{
+	        url: 'static/sun_dark.svg',
+	        height: 50,
+	        width: 50,
+	        anchor: [-7, 16],
+	        textColor: 'white',
+	        textSize: 10
+	      }]
+
+        var mcOptions = {gridSize: 50, maxZoom: 9, styles: stylesMC};
+		var mc = new MarkerClusterer(map, markers, mcOptions);
+
+
+		$(function() {
+			$("#submitForm").click(function(event) {
+				event.preventDefault();
+				$("#landing").hide();
+				$(".belove").removeClass("belove")
+				var center = new google.maps.LatLng(44.6666 ,14.1496);
+        		map.panTo(center);
+			});
+		})
+
+
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8iROkLemDoQ0DtokakfnPecU0h0rOK9I&callback=initMap"
+    async defer></script>
 
         </body>
 
