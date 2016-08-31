@@ -1,7 +1,7 @@
 html {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    background: blue;
+    background: #777;
 }
 
 body {
@@ -53,7 +53,11 @@ li:hover {
     top: 100px;
     bottom: 20px;
     width: 760px;
+<<<<<<< c91083ebef2ddeb1fdf2faab0d7b9200851d7080
     z-index: 5;
+=======
+    overflow-y: scroll;
+>>>>>>> Updated the form
 }
 
 h1 {
@@ -74,7 +78,7 @@ h2 {
     width: 120px;
     background: none;
     border: none;
-    border-bottom: 3px solid;
+    border-bottom: 3px solid #AE7039;
 }
 
 select {
@@ -82,7 +86,7 @@ select {
     font-family: 'Montserrat', sans-serif;
     background: none;
     border: none;
-    border-bottom: 3px solid;
+    border-bottom: 3px solid #AE7039;
     padding-right: 20px;
 }
 
@@ -111,6 +115,7 @@ select {
     filter: brightness(30%);
 }
 
+
 .popup-label{
 	text-align: center;
 }
@@ -119,4 +124,24 @@ select {
 	text-align: center;
 	font-size: 25px;
 	font-weight: 600;
+}
+
+.formButton {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  padding: 5px 20px;
+  background: #51A65B;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  margin-top: 20px;
+}
+
+.formButton:hover {
+  background: #2C8737;
+}
+
+#homeownerForm {
+  display: none;
 }

@@ -16,10 +16,38 @@
 	<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 	<script src="https://d3js.org/d3-dsv.v1.min.js"></script>
 	<script src="https://d3js.org/d3-request.v1.min.js"></script>
+  <script>
+  function formNext() {
+    var customerType = document.getElementById('customer-type').value;
+
+    /* if(document.getElementById("postcodeInput").length != 5) {
+      alert("Postcode must be 5 digits long.");
+      //exit function
+    } */
+
+    document.getElementById("nextButton").style.display = "none";
+    document.getElementById("startForm").style.color = "#666";
+    document.getElementById("customer-type").disabled = true;
+    document.getElementById("postcodeInput").disabled = true;
+
+    $("#introduction-panel").animate({ scrollTop: $("#introduction-panel").height() }, "slow");
+
+
+    if (customerType == "homeowner") {
+      console.log("You are a homeowner");
+      document.getElementById("homeownerForm").style.display = "inline";
+    } else if (customerType == "employee") {
+      console.log("you are looking for employment");
+    } else if (customerType == "employer") {
+      console.log("You be an employer, that be good.");
+    } else {
+      console.log("There was an error. [sadface]");
+    }
+  }
+  </script>
 
 
     <head>
-
         <body>
             <div id="menu-container">
                 <ul id="menu-list">
@@ -31,17 +59,38 @@
             </div>
             <div id="introduction-panel">
                 	<h1>tinja</h1>
-                	<h2>Sustainable something bla bla bla.</h2>
-                	<form id="introduction-form">
-                	    <label for="customer-type">I am a </label>
-                	    <select name="customer-type">
-                	        <option>Homeowner</option>
+                	<h2>A sustainable energy initiative.</h2>
+                	<form id="introduction-form" action="#">
+                    <p id="startForm">
+                	    <label for="customer-type">I am</label>
+                	    <select name="customer-type" id="customer-type">
+                	        <option value="homeowner">a homeowner</option>
+                          <option value="employee">looking for employment</option>
+                          <option value="employer">looking to hire</option>
                 	    </select>
                 	    and
                 	    <br />
                 	    <label for="postcode">my postcode is: </label>
-                	    <input id='postcodeInput' type="text" placeholder="01234" name="postcode" />
-                	    <button id="submitForm">Submit</button>
+                	    <input id='postcodeInput' type="text" placeholder="01234" name="postcode" /><br />
+                    </p>
+                	    <button type="button" class="formButton" onclick="formNext()" id="nextButton">Next</button>
+                      <p id="homeownerForm">
+                        <br />
+                        <span style="color: #51A65B;">Brilliant! We just need to know a little bit more about your house...</span><br /><br />
+                        <label for="customer-type">My roof is</label>
+                        <select name="shade-options" id="shade-options">
+                            <option value="homeowner">never shaded</option>
+                            <option value="employee">partially shaded</option>
+                            <option value="employer">mostly shaded</option>
+                        </select>
+                        and is
+                        <!--<label for="customer-type">During the day, my roof is</label>-->
+                        <select name="roof-options" id="roof-options">
+                            <option value="sloped">sloped</option>
+                            <option value="flat">flat</option>
+                        </select>.<br />
+                        <button type="button" class="formButton" onclick="formDone()" id="formDone">Next</button><br /><br />
+                      </p>
                 	</form>
                 </div>
 				<div id="map" class="belove">
