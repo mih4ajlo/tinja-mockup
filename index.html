@@ -18,7 +18,7 @@
         <body>
             <div id="menu-container">
                 <ul id="menu-list">
-                    <li>Home</li>
+                    <li> Home</li>
                     <li>What?</li>
                     <li>How?</li>
                     <li>Employment</li>
@@ -95,7 +95,7 @@
           var contentString = '<div id="content'+i+'">'+
       '<div id="siteNotice">'+
       '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru'+i+'</h1>'+
       '<div id="bodyContent">'+
       '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
       'sandstone rock formation in the southern part of the '+
@@ -114,12 +114,23 @@
       '</div>';
 
 	    var infowindow = new google.maps.InfoWindow({
-		    content: contentString
+		    content: contentString,
+		    
 		});
 
-		marker.addListener('click', function() {
+	    marker.infobox = infowindow;
+	    //marker.infobox.open(map, marker);
+
+		/*marker.addListener('click', function() {
 		    infowindow.open(map, marker);
 		  });
+		*/
+		google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    markers[i].infobox.open(map, this);
+                    map.panTo(markerData[i].latLng);
+                }
+            })(marker, i));
         
 
         
@@ -141,10 +152,12 @@
 
 		$(function() {
 			$("#submitForm").click(function(event) {
+				var lat = 44.6666;
+				var long = 14.1496;
 				event.preventDefault();
 				$("#landing").hide();
 				$(".belove").removeClass("belove")
-				var center = new google.maps.LatLng(44.6666 ,14.1496);
+				var center = new google.maps.LatLng( lat, long);
         		map.panTo(center);
 			});
 		})
