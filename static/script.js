@@ -139,11 +139,11 @@ var res =
   //'<p><b>'+ object.city +'</b> ' +  
   '<div class="popup-label"> Sunny days: </div>  <div class="popup-figure"> '+ object.sunny_days + '</div>' +
   '<div class="popup-label"> ROI: </div>  <div class="popup-figure">'+ lowerLimit + "-"+ upperLimit + 'Y</div>' +
-  '<div class="popup-label" title="EU, different sources"> Subsidy: </div>  <div class="popup-figure">'+ lowerLimitSubs + "-"+ upperLimitSubs + '%</div>' +
+  '<div class="popup-label" title="EU, different sources"> Subsidy*: </div>  <div class="popup-figure">'+ lowerLimitSubs + "-"+ upperLimitSubs + '%</div>' +
   '<div class="popup-label"> Operators in county: </div>  <div class="popup-figure">'+ operators + '</div>' +
-  '<div class="popup-label"> Interested homowners: </div>  <div class="popup-figure">'+ 20 + '</div>' +
+  '<div class="popup-label"> Interested homeowners: </div>  <div class="popup-figure">'+ 20 + '</div>' +
   '<div class="popup-label"> Job offers: </div>  <div class="popup-figure">'+ 30 + '</div>' +
-  '<div class="popup-label"> Peopele loking for job: </div>  <div class="popup-figure">'+ 30 + '</div>' +
+  '<div class="popup-label"> People looking for jobs: </div>  <div class="popup-figure">'+ 30 + '</div>' +
   
   '</div>' +
   '</div>';
