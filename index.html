@@ -1,33 +1,58 @@
 <!doctype html>
 <html>
-<head>
-	<link rel=stylesheet type="text/css" href="style.css" />
-	<title>tinja</title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<head>
-<body>
-<div id="menu-container">
-<ul id="menu-list">
-	<li>Home</li>
-	<li>What?</li>
-	<li>How?</li>
-	<li>Employment</li>
-</ul>
-</div>
 
-<div id="introduction-panel">
-<h1>tinja</h1>
-<h2>Sustainable something bla bla bla.</h2>
-<form id="introduction-form">
-<label for="customer-type">I am a </label>
-<select name="customer-type">
-	<option>Homeowner</option>
-</select>
-and
-<br />
-<label for="postcode">my postcode is: </label>
-<input type="text" placeholder="01234" name="postcode" />
-</form>
-</div>
-</body>
+<head>
+    <link rel=stylesheet type="text/css" href="style.css" />
+    <title>tinja</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.css">
+
+    <head>
+
+        <body>
+            <div id="menu-container">
+                <ul id="menu-list">
+                    <li>Home</li>
+                    <li>What?</li>
+                    <li>How?</li>
+                    <li>Employment</li>
+                </ul>
+            </div>
+            <div id="introduction-panel">
+                <h1>tinja</h1>
+                <h2>Sustainable something bla bla bla.</h2>
+                <form id="introduction-form">
+                    <label for="customer-type">I am a </label>
+                    <select name="customer-type">
+                        <option>Homeowner</option>
+                    </select>
+                    and
+                    <br />
+                    <label for="postcode">my postcode is: </label>
+                    <input id='postcodeInput' type="text" placeholder="01234" name="postcode" />
+                </form>
+            </div>
+        
+
+		<script type="text/javascript">
+			var input = document.getElementById("postcodeInput");
+			new Awesomplete(input, {
+
+				list: [
+				{label: "Belarus", value: "BY" },
+				{label:"Ada",value:"smth"},
+				{label:"Java",value:"smth"},
+				{label:"JavaScript",value:"smth"},
+				{label:"Brainfuck",value:"smth"},
+				{label:"LOLCODE",value:"smth"},
+				{label:"Node.js",value:"smth"},
+				{label:"Ruby on Rails",value:"smth"},]
+			});	
+		</script>
+
+        </body>
+
+
+
 </html>

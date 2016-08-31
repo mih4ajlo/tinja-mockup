@@ -17,6 +17,8 @@
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.css">
   </head>
 
 
@@ -57,7 +59,7 @@
 		    title:"Hello World!"
 		});
 
-          var contentString = '<div id="content">'+
+          var contentString = '<div id="content'+i+'">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
@@ -78,9 +80,9 @@
       '</div>'+
       '</div>';
 
-      var infowindow = new google.maps.InfoWindow({
-	    content: contentString
-	  });
+	    var infowindow = new google.maps.InfoWindow({
+		    content: contentString
+		});
 
 		marker.addListener('click', function() {
 		    infowindow.open(map, marker);
@@ -100,34 +102,10 @@
 	        textSize: 10
 	      }]
 
-        var mcOptions = {gridSize: 50, maxZoom: 9, /*imagePath: 'static/sun.svg',*/styles: stylesMC};
+        var mcOptions = {gridSize: 50, maxZoom: 9, styles: stylesMC};
 		var mc = new MarkerClusterer(map, markers, mcOptions);
 
 
-
-
-
-
-
-
-		var zoomLevel =  map.getZoom();
-		if (zoomLevel>=5 && zoomLevel<=10) { 
-					// To add the marker to the map, call setMap();
-			marker.setMap(map)
-
-		} else if (zoomLevel>10 && zoomLevel<=15) {
-			// To add the marker to the map, call setMap();
-			marker.setMap(map)
-
-		}
-
-
-        
-			/*  var markerReg = new google.maps.Marker({
-			    position: new google.maps.LatLng( 44.8666, 13.8496),
-			    map: map,
-			    icon: 'http://localhost/tinja-mockup/static/solar_panel.svg',
-			  });*/
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8iROkLemDoQ0DtokakfnPecU0h0rOK9I&callback=initMap"
