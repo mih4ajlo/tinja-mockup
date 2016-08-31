@@ -42,6 +42,10 @@ li:hover,.menu-selected {
     border-radius: 5px;
 }
 
+li a {
+  color: #000;
+  text-decoration: none;
+}
 #introduction-panel {
     left: calc(50% - 400px);
     margin: 20px auto;
@@ -55,7 +59,11 @@ li:hover,.menu-selected {
     width: 760px;
     overflow-y: scroll;
     z-index: 10;
+    transition: color 2s ease;
+}
 
+#homeownerConclusion {
+  display: none;
 }
 
 h1 {
@@ -69,6 +77,7 @@ h2 {
 
 #introduction-form {
     font-size: 2em;
+    transition: color 3s ease;
 }
 
 #introduction-form input {
@@ -77,6 +86,7 @@ h2 {
     background: none;
     border: none;
     border-bottom: 3px solid #AE7039;
+    transition: color 3s ease;
 }
 
 select {
@@ -132,6 +142,11 @@ select {
 
 #homeownerForm {
   display: none;
+  transition: color 1s ease;
+}
+
+#startForm {
+  transition: color 1s ease;
 }
 
 
