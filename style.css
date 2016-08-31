@@ -37,7 +37,7 @@ li {
     text-align: center;
 }
 
-li:hover {
+li:hover,.menu-selected {
     background: #ddd;
     border-radius: 5px;
 }
@@ -158,6 +158,10 @@ select {
 }
 
 .formButton:hover {
+  background: #2C8737;
+}
+
+.selected {
   background: #2C8737;
 }
 
