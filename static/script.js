@@ -135,13 +135,13 @@ var res =
   '</div>' +
   '<h1  class="firstHeading">' + object.city + '</h1>' +
   '<div>' +
-  '<p>' + '<br/>' + 
+  
   //'<p><b>'+ object.city +'</b> ' +  
   '<div class="popup-label"> Sunny days: </div>  <div class="popup-figure"> '+ object.sunny_days + '</div>' +
   '<div class="popup-label"> ROI: </div>  <div class="popup-figure">'+ lowerLimit + "-"+ upperLimit + 'Y</div>' +
   '<div class="popup-label"> Subsidy: </div>  <div class="popup-figure">'+ lowerLimitSubs + "-"+ upperLimitSubs + '%</div>' +
   '<div class="popup-label"> Operators in county: </div>  <div class="popup-figure">'+ operators + '</div>' +
-  '</p>' +
+  
   '</div>' +
   '</div>';
   return res;
