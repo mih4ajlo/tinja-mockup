@@ -4,7 +4,7 @@ var picture;
 var markers = [];
 
 var url = "data/data.csv";
-var allData = [];
+var citiesData = [];
 
 function initMap() {
 
@@ -18,20 +18,32 @@ function initMap() {
 
 
     d3.csv(url, function(data) {
-      allData = data;
+      citiesData = data;
     });
 
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
-        puttingMarkers(map, allData);
+        puttingMarkers(map, citiesData);
 
 
         $("#submitForm").click(function(event) {
             var lat = 44.6666;
             var long = 14.1496;
 
+
+
             event.preventDefault();
-            $("#landing").hide();
+            var postcode = $("#postcodeInput").val()
+
+            var city = citiesData.filter(function(el) {
+               return el.zip == postcode;
+            });
+            if(  city.length >0  ){
+              lat = parseFloat(city[0].lat) ;
+              lon = parseFloat(city[0].lon) ;
+            }
+
+            $("#introduction-panel").hide();
             $(".belove").removeClass("belove")
             
             var center = new google.maps.LatLng(lat, long);
@@ -49,11 +61,11 @@ function initMap() {
 
 
 
-function puttingMarkers(map, allData) {
+function puttingMarkers(map, citiesData) {
   
 
-    for (var i = 0; i < allData.length; i++) {
-        var temp_datum = allData[i]; 
+    for (var i = 0; i < citiesData.length; i++) {
+        var temp_datum = citiesData[i]; 
         var temp_lat =  parseFloat(temp_datum.lat);
         var temp_lon =  parseFloat( temp_datum.lon );
 
@@ -61,7 +73,7 @@ function puttingMarkers(map, allData) {
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(temp_lat,  temp_lon),
             icon: {
-                url: 'http://localhost/tinja-mockup/static/solar_panel.svg',
+                url: 'static/solar_panel.svg',
                 size: new google.maps.Size(30, 42)           
 
             },
@@ -110,19 +122,26 @@ function puttingMarkers(map, allData) {
 
 function textData( object ) {
 
-
+var lowerLimit = Math.round(Math.random()*5);
+var upperLimit = 5 + Math.round(Math.random()*5);
+var lowerLimitSubs = 20 + Math.round(Math.random()*20);
+var upperLimitSubs = 20 + Math.round(Math.random()*50);
+upperLimitSubs= upperLimitSubs < (lowerLimitSubs  )? (lowerLimitSubs+10 ): upperLimitSubs; 
+var operators =  Math.round(Math.random()*20);
 
 var res =   
-  '<div id="content' + object.city + '">' +
+  '<div class="popup">' +
   '<div>' +
   '</div>' +
   '<h1  class="firstHeading">' + object.city + '</h1>' +
   '<div>' +
-  '<p>' +
-  //'<p><b>'+ object.city +'</b> ' +  
-  '<br/> Broj suncanih dana: '+ object.sunny_days + 
   
-  '</p>' +
+  //'<p><b>'+ object.city +'</b> ' +  
+  '<div class="popup-label"> Sunny days: </div>  <div class="popup-figure"> '+ object.sunny_days + '</div>' +
+  '<div class="popup-label"> ROI: </div>  <div class="popup-figure">'+ lowerLimit + "-"+ upperLimit + 'Y</div>' +
+  '<div class="popup-label"> Subsidy: </div>  <div class="popup-figure">'+ lowerLimitSubs + "-"+ upperLimitSubs + '%</div>' +
+  '<div class="popup-label"> Operators in county: </div>  <div class="popup-figure">'+ operators + '</div>' +
+  
   '</div>' +
   '</div>';
   return res;

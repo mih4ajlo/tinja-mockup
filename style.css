@@ -53,7 +53,11 @@ li:hover {
     top: 100px;
     bottom: 20px;
     width: 760px;
+<<<<<<< HEAD
     overflow-y: scroll;
+=======
+    z-index: 5;
+>>>>>>> c91083ebef2ddeb1fdf2faab0d7b9200851d7080
 }
 
 h1 {
@@ -100,7 +104,7 @@ select {
     position: relative;
     top: 0;
     left: 0;
-    z-index: -1;
+    /* z-index: -1; */
 
     /* Set z-index to 0 as it will be on a layer below the contact form */
 }
@@ -110,6 +114,7 @@ select {
     -webkit-filter: brightness(30%);
     filter: brightness(30%);
 }
+
 
 .formButton {
   font-family: 'Montserrat', sans-serif;
@@ -129,4 +134,14 @@ select {
 
 #homeownerForm {
   display: none;
+}
+
+.popup-label{
+	text-align: center;
+}
+
+.popup-figure{
+	text-align: center;
+	font-size: 25px;
+	font-weight: 600;
 }
