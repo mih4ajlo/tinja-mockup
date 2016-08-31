@@ -4,47 +4,167 @@
 <head>
     <meta charset="UTF-8">
     <title>Employment</title>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.css">
+
     <script src="https://d3js.org/d3-collection.v1.min.js"></script>
     <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
     <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+	<div id="menu-container">
+    <ul id="menu-list">
+        <li ><a href="index.html">Home</a></li>
+        <li><a href="what.html">What?</a></li>
+        <li><a href="how.html">How?</a></li>
+        <li class="menu-selected"><a href="jobs.html">Employment</a></li>
+    </ul>
+    </div>
+    <div id="introduction-panel">
+        <h1>Tinja</h1>
+        <h2>A sustainable energy initiative.</h2>
+        <form id="introduction-form" action="#">
+            <p id="startForm">
+                <label for="customer-type">I am</label>
+                <select name="customer-type" id="customer-type">
+                    <option value="employee">looking for employment</option>
+                    <option value="employer">looking to hire</option>
+                </select>
+                and
+                <br />
+                <label for="postcode">my postcode is: </label>
+                <input id='postcodeInput' type="text" placeholder="01234" name="postcode" />
+                <br />
+            </p>
+            <button type="button" class="formButton" id="nextButton">Next</button>
+            <p id="employeeForm" class="hidden">
+                <br />
+                <span style="color: #51A65B;">Brilliant! We just need to know a little bit more about your needs...</span>
+                <br />
+                <br />
+                <label for="customer-type">My roof is</label>
+                <select name="shade-options" id="shade-options">
+                    <option value="homeowner">never shaded</option>
+                    <option value="employee">partially shaded</option>
+                    <option value="employer">mostly shaded</option>
+                </select>
+                and is
+                <!--<label for="customer-type">During the day, my roof is</label>-->
+                <select name="roof-options" id="roof-options">
+                    <option value="sloped">sloped</option>
+                    <option value="flat">flat</option>
+                </select>.
+                <br />
+                <button type="button" class="formButton" id="formDone">Next</button>
+                <br />
+                <br />
+            </p>
+            <p id="employerForm" class="hidden">
+                <br />
+                <span style="color: #51A65B;">Brilliant! We just need to know a little bit more about your needs...</span>
+                <br />
+                <br />
+                <label for="customer-type">My roof is</label>
+                <select name="shade-options" id="shade-options">
+                    <option value="homeowner">never shaded</option>
+                    <option value="employee">partially shaded</option>
+                    <option value="employer">mostly shaded</option>
+                </select>
+                and is
+                <!--<label for="customer-type">During the day, my roof is</label>-->
+                <select name="roof-options" id="roof-options">
+                    <option value="sloped">sloped</option>
+                    <option value="flat">flat</option>
+                </select>.
+                <br />
+                <button type="button" class="formButton" id="formDone">Next</button>
+                <br />
+                <br />
+            </p>
+        </form>
+    </div>
+    <div id="map" class="belove"></div>
     <!-- asds -->
-    <div class="container">
-    	<div class="row">
-    		List of all institutions
-    	</div>
-        <div class="row">
-            <div class="listing-item row" itemscope="" itemtype="http://schema.org/Product">
-                <div class="row">
-                    <a href="https://csgoshop.com/item/gamma-case-key" class="listing-link">&nbsp;</a>
-                    <div class="col-sm-2 col-xs-12 col-image">
-                        <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOiev2ZVBkgafOdW9Hu9jgwYXbxKP2Z7mCw28HucZ1j7mR9tvxjlfk-UY9ZW_tZNjClU49oyY/100fx100f" itemprop="image" class="center-block" alt="item_image">
+    <div class="container ">
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#panel-peoples" data-toggle="tab">Companies</a></li>
+                <li><a href="#panel-companies" data-toggle="tab">Peoples</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="panel-peoples">
+                    <div id="peopleContainer">
+                        <table class="table table-companies">
+                        </table>
                     </div>
-                    <div class="col-sm-6 col-xs-12"><span itemprop="name" class="item-name">Gamma Case Key</span></div>
-                    <div class="col-sm-2 col-xs-12">
-                        <span class="label label-steam" style="color: #b0c3d9;">
-                    Base Grade
-                </span>
-                    </div>
-                    <div class="col-sm-2 col-xs-12" itemscope="" itemtype="http://schema.org/Offer">
-                        <span class="item-price" itemprop="price" content="2.15">
-                264 from $2.15 (19% off)
-            </span>
+                </div>
+                <div class="tab-pane" id="panel-companies">
+                    <div id="companiesContainer">
+                        <table class="table table-bordered">
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="clearfix"></div>
     </div>
+    
     <!-- asdasd -->
 </body>
+<script src="static/jobs.js"></script>
+<script type="text/javascript">
+
+
+
+$(function() {
+	$("#nextButton").click(function() {
+		var optionSelected = $("customer-type").val();
+
+		$("#introduction-panel form").remove();
+		$("#introduction-panel").append( $(".tabbable").html() );
+
+		if( optionSelected == "employer"){
+			 $('.nav-tabs a[href="#' + 'companies' + '"]').tab('show');
+		}
+		else {
+			$('.nav-tabs a[href="#' + 'peoples' + '"]').tab('show');
+		}
+	})
+})
+
+
+function initMap(argument) {
+	map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+        lat: 44.8666,
+        lng: 13.8496
+    },
+    zoom: 8,
+    //icon: marker,
+    disableDefaultUI: true
+});
+}
+
+</script>
+
+<script type="text/javascript">
+
+
+
+			var input = document.getElementById("postcodeInput");
+			new Awesomplete(input, {
+
+				list: ["10000","20000","21000","22000","23000","31000","32000","33000","34000","35000","40000","42000","43000","44000","47000","48000","49000","51000","52000","53000"]
+			});
+		</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8iROkLemDoQ0DtokakfnPecU0h0rOK9I&callback=initMap" async defer></script>
 
 </html>
