@@ -16,6 +16,7 @@
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
   </head>
 
 
@@ -36,13 +37,18 @@
           disableDefaultUI: true
         });
 
+        var markers = [];
+
+        for (var i = 0; i < 10; i++) {
+        			
+        			
 //https://developers.google.com/maps/documentation/javascript/markers
         var marker = new google.maps.Marker({
-		    position: new google.maps.LatLng( 44.8666, 13.8496),
+		    position: new google.maps.LatLng( 44.8666 + (0.1 * i ), 13.8496 -  (0.1 * i )),
 		    icon: {
 		    	url:'http://localhost/tinja-mockup/static/solar_panel.svg',
 		    	size: new google.maps.Size(30, 42),
-		    	fillColor: "green"
+		    	
 		    	/*origin: new google.maps.Point(0, 0),    		
     			anchor: new google.maps.Point(0, 32),*/
     			
@@ -51,11 +57,7 @@
 		    title:"Hello World!"
 		});
 
-		
-
-
-
-  var contentString = '<div id="content">'+
+          var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
@@ -83,6 +85,27 @@
 		marker.addListener('click', function() {
 		    infowindow.open(map, marker);
 		  });
+        
+
+        
+        markers.push(marker);
+        }	
+
+        var stylesMC = [{
+	        url: 'static/sun_dark.svg',
+	        height: 50,
+	        width: 50,
+	        anchor: [-7, 16],
+	        textColor: 'white',
+	        textSize: 10
+	      }]
+
+        var mcOptions = {gridSize: 50, maxZoom: 9, /*imagePath: 'static/sun.svg',*/styles: stylesMC};
+		var mc = new MarkerClusterer(map, markers, mcOptions);
+
+
+
+
 
 
 
