@@ -23,6 +23,10 @@
 		  	formNext();
 		  })
 
+      $("#nextButton2").click(function(ev) {
+  		  	formNext2();
+  		  })
+
 		$("#formDone").click(function(ev) {
 		  	formDone();
 		  })
@@ -62,6 +66,17 @@
       console.log("There was an error. [sadface]");
     }
   }
+
+  function formNext2() {
+    document.getElementById("nextButton2").style.display = "none";
+    document.getElementById("homeownerForm").style.color = "#666";
+    document.getElementById("shade-options").disabled = true;
+    document.getElementById("roof-options").disabled = true;
+    document.getElementById("roof-sides").disabled = true;
+    document.getElementById("homeownerConclusion").style.display = "inline";
+
+    $("#introduction-panel").animate({ scrollTop: $("#introduction-panel").height() }, "slow");
+  }
   </script>
 
 
@@ -70,7 +85,7 @@
             <div id="menu-container">
                 <ul id="menu-list">
                     <li class="menu-selected"><a href="#">Home</a></li>
-                    <li><a href="what.html">What?</a></li>
+                    <li><a href="what.html">What?</li></a>
                     <li><a href="how.html">How?</a></li>
                     <li><a href="jobs.html">Employment</a></li>
                 </ul>
@@ -83,8 +98,8 @@
                 	    <label for="customer-type">I am</label>
                 	    <select name="customer-type" id="customer-type">
                 	        <option value="homeowner">a homeowner</option>
-                          <option value="employee">looking for employment</option>
-                          <option value="employer">looking to hire</option>
+                          <option value="employee">a farm owner</option>
+                          <option value="employee">an office owner</option>
                 	    </select>
                 	    and
                 	    <br />
@@ -106,9 +121,19 @@
                         <select name="roof-options" id="roof-options">
                             <option value="sloped">sloped</option>
                             <option value="flat">flat</option>
-                        </select>.<br />
-                        <button type="button" class="formButton"  id="formDone">Next</button><br /><br />
+                        </select>.<br /><br />
+                        <label for="roof-sides">The roof has</lavel>
+                        <input type="number" placeholder="3" min="0" max="15" value="" id="roof-sides"/>
+                        sides which face east or west.<br />
+                        <button type="button"  class="formButton"  id="nextButton2">Next</button>
                       </p>
+                      <p id="homeownerConclusion">
+                        <br />
+                        <span  style="color: #51A65B;">Fantastic, we think your house may be suitable!</span> We estimate that if you install a 2.5 KW system, it would become profitable after <span style="color: #51A65B; white-space: pre;"><b>6 years</b></span> for an initial investment of 23,000 HRK.
+                        <button type="button" class="formButton"  id="formDone">View Map</button>  <button type="button" class="formButton"  id="signUp">Sign Up and Get an Offer</button>
+                        <br /><br />
+                      </p>
+                      <br /><br />
                 	</form>
                 </div>
 				<div id="map" class="belove">
