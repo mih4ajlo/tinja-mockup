@@ -15,20 +15,24 @@
         height: 100%;
       }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   </head>
+
+
   <body>
     <div id="map"></div>
     <script>
       var map;
+      var picture ;
 
-      
-
+		
+  
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 44.8666, lng: 13.8496},
           zoom: 8,
-          icon: marker,
+          //icon: marker,
           disableDefaultUI: true
         });
 
@@ -38,13 +42,16 @@
 		    icon: {
 		    	url:'http://localhost/tinja-mockup/static/solar_panel.svg',
 		    	size: new google.maps.Size(30, 42),
-		    	origin: new google.maps.Point(0, 0),    		
-    			anchor: new google.maps.Point(0, 32),
-    			fill:'green'
+		    	fillColor: "green"
+		    	/*origin: new google.maps.Point(0, 0),    		
+    			anchor: new google.maps.Point(0, 32),*/
+    			
 		    },
 		   
 		    title:"Hello World!"
 		});
+
+		
 
 
 
@@ -77,8 +84,20 @@
 		    infowindow.open(map, marker);
 		  });
 
-		// To add the marker to the map, call setMap();
-		marker.setMap(map)
+
+
+
+		var zoomLevel =  map.getZoom();
+		if (zoomLevel>=5 && zoomLevel<=10) { 
+					// To add the marker to the map, call setMap();
+			marker.setMap(map)
+
+		} else if (zoomLevel>10 && zoomLevel<=15) {
+			// To add the marker to the map, call setMap();
+			marker.setMap(map)
+
+		}
+
 
         
 			/*  var markerReg = new google.maps.Marker({
