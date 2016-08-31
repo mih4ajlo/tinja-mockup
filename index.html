@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.min.css">
 
-	
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
@@ -16,6 +16,7 @@
     <head>
 
         <body>
+          <div id="map" class="belove"></div>
             <div id="menu-container">
                 <ul id="menu-list">
                     <li> Home</li>
@@ -40,13 +41,8 @@
                 	    <button id="submitForm">Submit</button>
                 	</form>
                 </div>
-				<div id="map" class="belove">
-					
-				</div>
-
-
             </div>
-        
+
 
 		<script type="text/javascript">
 			var input = document.getElementById("postcodeInput");
@@ -54,15 +50,15 @@
 
 				list: [
 				"Ada", "Java", "JavaScript", "Brainfuck", "LOLCODE", "Node.js", "Ruby on Rails"]
-			});	
+			});
 		</script>
 
 		<script>
       var map;
       var picture ;
 
-		
-  
+
+
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -75,20 +71,20 @@
         var markers = [];
 
         for (var i = 0; i < 10; i++) {
-        			
-        			
+
+
 //https://developers.google.com/maps/documentation/javascript/markers
         var marker = new google.maps.Marker({
 		    position: new google.maps.LatLng( 44.8666 + (0.1 * i ), 13.8496 -  (0.1 * i )),
 		    icon: {
 		    	url:'http://localhost/tinja-mockup/static/solar_panel.svg',
 		    	size: new google.maps.Size(30, 42),
-		    	
-		    	/*origin: new google.maps.Point(0, 0),    		
+
+		    	/*origin: new google.maps.Point(0, 0),
     			anchor: new google.maps.Point(0, 32),*/
-    			
+
 		    },
-		   
+
 		    title:"Hello World!"
 		});
 
@@ -115,7 +111,7 @@
 
 	    var infowindow = new google.maps.InfoWindow({
 		    content: contentString,
-		    
+
 		});
 
 	    marker.infobox = infowindow;
@@ -131,11 +127,11 @@
                     map.panTo(markerData[i].latLng);
                 }
             })(marker, i));
-        
 
-        
+
+
         markers.push(marker);
-        }	
+        }
 
         var stylesMC = [{
 	        url: 'static/sun_dark.svg',
