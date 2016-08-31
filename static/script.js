@@ -38,7 +38,7 @@ function initMap() {
             var city = citiesData.filter(function(el) {
                return el.zip == postcode;
             });
-            if( city !=undefined ){
+            if(  city.length >0  ){
               lat = parseFloat(city[0].lat) ;
               lon = parseFloat(city[0].lon) ;
             }
