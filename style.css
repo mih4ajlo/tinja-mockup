@@ -53,17 +53,9 @@ li:hover {
     top: 100px;
     bottom: 20px;
     width: 760px;
-<<<<<<< HEAD
-<<<<<<< c91083ebef2ddeb1fdf2faab0d7b9200851d7080
-    z-index: 5;
-=======
-    overflow-y: scroll;
->>>>>>> Updated the form
-=======
     overflow-y: scroll;
     z-index: 10;
 
->>>>>>> 2770c4a328b03ace3a2dc46974d536c06f621144
 }
 
 h1 {
@@ -122,8 +114,6 @@ select {
 }
 
 
-<<<<<<< HEAD
-=======
 .formButton {
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;

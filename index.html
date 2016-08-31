@@ -18,12 +18,21 @@
 	<script src="https://d3js.org/d3-request.v1.min.js"></script>
   <script>
 
-  $("#nextButton").click(function(ev) {
-  	formNext();
-  })
+	$(function() {
+		$("#nextButton").click(function(ev) {
+		  	formNext();
+		  })	
 
-  function formDone(argument) {
-  	console.log('test');
+		$("#formDone").click(function(ev) {
+		  	formDone();
+		  })	
+	})
+  
+
+  function formDone() {
+  		$("#introduction-panel").hide();
+  		$(".belove").removeClass("belove");
+
   }
 
   function formNext() {
@@ -82,7 +91,7 @@
                 	    <label for="postcode">my postcode is: </label>
                 	    <input id='postcodeInput' type="text" placeholder="01234" name="postcode" /><br />
                     </p>
-                	    <button class="formButton"  id="nextButton">Next</button>
+                	    <button type="button"  class="formButton"  id="nextButton">Next</button>
                       <p id="homeownerForm">
                         <br />
                         <span style="color: #51A65B;">Brilliant! We just need to know a little bit more about your house...</span><br /><br />
@@ -98,7 +107,7 @@
                             <option value="sloped">sloped</option>
                             <option value="flat">flat</option>
                         </select>.<br />
-                        <button type="button" class="formButton" onclick="formDone()" id="formDone">Next</button><br /><br />
+                        <button type="button" class="formButton"  id="formDone">Next</button><br /><br />
                       </p>
                 	</form>
                 </div>
