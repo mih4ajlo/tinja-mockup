@@ -101,3 +101,16 @@ d3.csv(peoplesUrl, function(data) {
     $("#companiesContainer table").append(heading);
     $("#companiesContainer table").append(template);
 });
+
+
+
+$(function() {
+    if(location.hash == "#companies" ){
+        showingTables("companies")
+    }
+
+    if(location.hash == "#peoples" ){
+        showingTables("peoples")
+    }
+
+})

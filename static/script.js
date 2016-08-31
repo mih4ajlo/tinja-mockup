@@ -142,8 +142,8 @@ var res =
   '<div class="popup-label" title="EU, different sources"> Subsidy*: </div>  <div class="popup-figure">'+ lowerLimitSubs + "-"+ upperLimitSubs + '%</div>' +
   '<div class="popup-label"> Operators in county: </div>  <div class="popup-figure">'+ operators + '</div>' +
   '<div class="popup-label"> Interested homeowners: </div>  <div class="popup-figure">'+ 20 + '</div>' +
-  '<div class="popup-label"> Job offers: </div>  <div class="popup-figure">'+ 30 + '</div>' +
-  '<div class="popup-label"> People looking for jobs: </div>  <div class="popup-figure">'+ 30 + '</div>' +
+  '<div class="popup-label"> <a href="jobs.html#companies"> Job offers: </div>  <div class="popup-figure">'+ 30 + '</a></div>' +
+  '<div class="popup-label"> <a href="jobs.html#peoples">People looking for jobs: </div>  <div class="popup-figure">'+ 37 + '</a></div>' +
   
   '</div>' +
   '</div>';

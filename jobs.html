@@ -126,19 +126,31 @@
 
 $(function() {
 	$("#nextButton").click(function() {
-		var optionSelected = $("customer-type").val();
-
-		$("#introduction-panel form").remove();
-		$("#introduction-panel").append( $(".tabbable").html() );
-
-		if( optionSelected == "employer"){
-			 $('.nav-tabs a[href="#' + 'companies' + '"]').tab('show');
-		}
-		else {
-			$('.nav-tabs a[href="#' + 'peoples' + '"]').tab('show');
-		}
+		
+		showingTables()
 	})
 })
+
+
+function showingTables(param) {
+
+	var optionSelected = "";
+	if(param == "" || param == undefined) 
+		optionSelected = $("customer-type").val();
+	else{
+		optionSelected = "employer";
+	}
+
+	$("#introduction-panel form").remove();
+	$("#introduction-panel").append( $(".tabbable").html() );
+
+	if( optionSelected == "employer"){
+		 $('.nav-tabs a[href="#' + 'companies' + '"]').tab('show');
+	}
+	else {
+		$('.nav-tabs a[href="#' + 'peoples' + '"]').tab('show');
+	}
+}
 
 
 function initMap(argument) {
