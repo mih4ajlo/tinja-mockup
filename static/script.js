@@ -125,8 +125,8 @@ function textData( object ) {
 var lowerLimit = Math.round(Math.random()*5);
 var upperLimit = 5 + Math.round(Math.random()*5);
 var lowerLimitSubs = 20 + Math.round(Math.random()*20);
-var upperLimitSubs = 50 + Math.round(Math.random()*70);
-upperLimitSubs= upperLimitSubs< (lowerLimitSubs  )? (lowerLimitSubs+10 ): upperLimitSubs; 
+var upperLimitSubs = 50 + Math.round(Math.random()*50);
+upperLimitSubs= upperLimitSubs < (lowerLimitSubs  )? (lowerLimitSubs+10 ): upperLimitSubs; 
 var operators =  Math.round(Math.random()*20);
 
 var res =   
